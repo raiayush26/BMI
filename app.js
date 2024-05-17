@@ -36,10 +36,16 @@ document.addEventListener("DOMContentLoaded", function() {
         const result = document.getElementById("ans");
 
         let AccurateWeight = calculateAccurateWeight(height);
-        let beforeWeight1 = calculateBeforeWeight1(height);        
+        let beforeWeight1 = calculateBeforeWeight1(height);
+
         if(bmi<18.5){
+            resultElement.innerHTML =`Your Bmi is <h1>${bmi}</h1> You are Underweight, You should have weight of ${beforeWeight1}kg  for 18.5, You should increase your weight by ${(beforeWeight1-weight).toFixed(3)} kg to be Accurate Fit, The Accurate weight for 18.5 is ${beforeWeight1}kg,`;
+            
+        }
+        else if(bmi==18.5){
             resultElement.innerHTML ="Your Bmi is " + bmi;
-        }else if(bmi>=18.5 && bmi<=24.9){
+        }
+        else if(bmi>18.5 && bmi<=24.9){
             result.innerHTML =`Your Bmi is <h1>${bmi} </h1>   You are Normal or ${beforeWeight1} for 18.5 to be Accurate.`;
         }
         else if(bmi>=25 && bmi<=29.9){
